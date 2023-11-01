@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .calculator {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(74, 73, 73);
+    text-align: center;
+  }
+
+  input[type="text"] {
+    width: 95%;
+    height: 48px;
+    margin: 2px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  button {
+    width: 30%;
+    height: 48px;
+    margin: 2px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Style the number buttons in dark grey */
+  button.number {
+    background-color:  rgb(74, 73, 73);
+    color: white;
+  }
+
+  /* Style the "." and "=" buttons in dark grey */
+  button.number.special {
+    background-color:  rgb(74, 73, 73);
+    color: white;
+  }
+
+  /* Style the "+", "-", "*", and "/" buttons in gray */
+  button.operator {
+    background-color: gray;
+    color: white;
+  }
+
+  /* Style the "AC" button in green */
+  button.clear {
+    background-color: teal;
+    color: white;
+  }

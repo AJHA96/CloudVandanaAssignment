@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Survey Form</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./surveyForm.css">
+</head>
+<body>
+  <div class="title">
+    <h1>Customer Survey Form</h1>
+  </div>
+  <div class="container">
+    <form id="surveyForm">
+      <table>
+        <tr>
+          <th>First Name:</th>
+          <td><input type="text" id="firstName" required></td>
+        </tr>
+        <tr>
+          <th>Last Name:</th>
+          <td><input type="text" id="lastName" required></td>
+        </tr>
+        <tr>
+          <th>Date of Birth:</th>
+          <td><input type="date" id="dob" required></td>
+        </tr>
+        <tr>
+          <th>Country:</th>
+          <td>
+            <select id="country" required>
+              <option value="">Select a Country</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="UK">UK</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td>
+            <input type="checkbox" id="male" value="Male"> Male
+            <input type="checkbox" id="female" value="Female"> Female
+          </td>
+        </tr>
+        <tr>
+          <th>Profession:</th>
+          <td><input type="text" id="profession" required></td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td><input type="email" id="email" required></td>
+        </tr>
+        <tr>
+          <th>Mobile Number:</th>
+          <td><input type="tel" id="mobile" required></td>
+        </tr>
+      </table>
+      <br>
+      <button type="button" id="submitButton">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+    
+  </div>
+  <div class="footer">
+    <span class="material-icons" id="materials">copyright</span>
+    <span>2018 Customer Survey Form. All Rights Reserved</span>
+  </div>
+
+
+  <div id="popup">
+    <div class="popup-content">
+      <h2>Survey Form Submission</h2>
+      <div id="results"></div>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("submitButton").addEventListener("click", function() {
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const dob = document.getElementById("dob").value;
+      const country = document.getElementById("country").value;
+      const gender = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(input => input.value).join(", ");
+      const profession = document.getElementById("profession").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+
+      const results = `
+        <p><strong>First Name:</strong> ${firstName}</p>
+        <p><strong>Last Name:</strong> ${lastName}</p>
+        <p><strong>Date of Birth:</strong> ${dob}</p>
+        <p><strong>Country:</strong> ${country}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Profession:</strong> ${profession}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mobile Number:</strong> ${mobile}</p>
+      `;
+
+      document.getElementById("results").innerHTML = results;
+      document.getElementById("popup").style.display = "flex";
+    });
+
+    document.getElementById("closePopup").addEventListener("click", function() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("surveyForm").reset();
+    });
+  </script>
+</body>
+</html>
